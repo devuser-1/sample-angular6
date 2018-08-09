@@ -1,0 +1,36 @@
+<div>
+<form [formGroup]='eventForm' >
+
+  <h5>
+    event-form
+  </h5>
+
+<mat-form-field>
+  <input matInput type="text" formControlName='title' placeholder="title">
+  <mat-error class="form-group-error" *ngIf="formErrors.title" >
+      {{formErrors.title}}
+  </mat-error>
+</mat-form-field>
+
+<mat-form-field >
+  <input matInput type="date" formControlName='dateOfEvent' >
+  <mat-error class="form-group-error" *ngIf="formErrors.dateOfEvent" >
+      {{formErrors.dateOfEvent}}
+  </mat-error>
+</mat-form-field>
+
+<mat-form-field >
+  <input matInput atp-time-picker theme="material-blue"  type="time" formControlName='time' >
+  <mat-error class="form-group-error" *ngIf="formErrors.time" >
+      {{formErrors.time}}
+  </mat-error>
+</mat-form-field>
+
+ <div>
+    <button mat-raised-button (click)="resetForm($event, true)" class="cancel-btn">Cancel</button>
+    <button mat-raised-button  color="primary"  [disabled]="true">Save Event</button>      
+ </div>
+
+
+</form>
+</div>
